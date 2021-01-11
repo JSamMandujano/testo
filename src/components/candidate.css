@@ -1,0 +1,19 @@
+.moverboton {
+    float: right !important;
+    position: relative;
+    top: 440px;
+    left: 800px;
+   
+    
+
+}
+
+.moverbotonback {
+    float: left !important;
+    position: relative;
+    top: 440px;
+    left: 2px;
+   
+    
+
+}

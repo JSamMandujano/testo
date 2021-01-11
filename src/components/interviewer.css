@@ -1,0 +1,21 @@
+
+
+.navbar {
+    padding: 25px !important;
+}
+
+.crosshair {cursor: crosshair;}
+
+.mueve {
+    float: right !important;
+    position: relative;
+    top: 200px;
+    left: 950px;
+    
+
+}
+
+img {
+    width: 200px !important;
+    height: 200px !important;
+}
