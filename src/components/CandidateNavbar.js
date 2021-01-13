@@ -32,7 +32,7 @@ export const CandidateNavbar = (props) => {
            
                 <img height='200px' width='200px' class="crosshair"  src={ adduser.img } alt="user" onClick={() => openModal()}/>
                 <Link className="btn btn-warning mr-1 moverbotonback" to={`/` }>Back</Link>
-                <Button  className="btn btn-warning mr-1 moverboton " onClick={() => history.push('/results')} disabled={candidate.title == undefined} >Start Interview</Button>
+                <Button  className="btn btn-warning mr-1 moverboton " onClick={() => history.push('/interview')} disabled={candidate.title == undefined} >Start Interview</Button>
                 
         </div>
     )

@@ -1,3 +1,22 @@
 .showtext {
     color:black;
 }
+
+.moveradio{
+    padding-right: 60px;
+
+}
+
+.moveradiu{
+    padding-left: 70px !important;
+}
+
+.moverbotono {
+    float: right !important;
+    position: relative;
+    top: 40px;
+    left: 5px;
+   
+    
+
+}

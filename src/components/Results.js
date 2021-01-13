@@ -1,48 +1,91 @@
-import React, { useContext } from 'react'
-import Table from 'react-bootstrap/Table'
+import React, { useContext, useState } from 'react'
 import { CandidateContext } from '../context/CandidateContext';
+import './results.css';
 
 import {
-    Navbar
+    Navbar,Button, Modal, ModalHeader, ModalBody, ModalFooter,Table
   } from 'reactstrap';
 export const Results = () => {
-   
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+
+
 const {candidate} = useContext(CandidateContext) //cuando estan en el mismo nivel los componentes e hijo a padre
 console.log(candidate);
     return (
         <div>
         <Navbar color="dark" dark> </Navbar>
             <h1>Summary</h1>
-            <Table striped bordered hover>
+            <Table>
   <thead>
     <tr>
-      <th>{candidate.title}</th>
-      <th>{candidate.description}</th>
-      <th>{candidate.category}</th>
+      <th>Candidate Data</th>
+      <th>Results</th>
+      <th className="clickazul" onClick={toggle}>View Questions</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>Nombre:{candidate.title}</td>
+      <td>Skills</td>
+      <td>Points</td>
 
     </tr>
     <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <td>Tipo:{candidate.description}</td>
+      <td>HTML</td>
+      <td>P1</td>
 
     </tr>
     <tr>
-      <td>Larry the Bird</td>
-      <td>@twitter</td>
-      <td>@fat</td>
+      <td>Correo:{candidate.category}</td>
+      <td>CSS</td>
+      <td>P1</td>
+
+
+    </tr>
+    <tr>
+      <td></td>
+      <td>React</td>
+      <td>P1</td>
 
 
     </tr>
   </tbody>
 </Table>
+
+<Button  className="btn btn-warning mr-1 moverbotonx " >Finalize</Button>
+
+
+<Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Questions</ModalHeader>
+        <ModalBody>
+        <Table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Answer</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">data</th>
+          <td>data</td>
+          <td>data</td>
+         
+        </tr>
+        <tr>
+          <th scope="row">data</th>
+          <td>data</td>
+          <td>data</td>
+          
+        </tr>
+        
+      </tbody>
+    </Table>
+        </ModalBody>
+      </Modal>    
       
         </div>
     )

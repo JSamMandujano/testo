@@ -14,7 +14,7 @@ const CandidateModal = (props) => {
     const [image, setImage] = useState('');
     const [htmlskills, setHtmlSkills] = useState(false);
     const [cssskills, setCssSkills] = useState(false);
-    const [reactskills, setReactSkills] = useState("off");
+    const [reactskills, setReactSkills] = useState(false);
     const [javascriptskills, setJavascriptSkills] = useState(false);
     const {
         buttonLabel,
