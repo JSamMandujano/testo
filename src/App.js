@@ -6,6 +6,7 @@ import { Interview } from './components/Interview';
 import { Results } from './components/Results';
 import { GlobalProvider } from './context/GlobalState';
 import { CandidateProvider } from './context/CandidateContext';
+import { QuestionsContext } from './components/Interview';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'

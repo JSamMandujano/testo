@@ -1,5 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { CandidateContext } from '../context/CandidateContext';
+import { useParams } from 'react-router-dom';
+// import { QuestionsContext } from './Interview';
+
 import './results.css';
 
 import {
@@ -8,10 +11,15 @@ import {
 export const Results = () => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  const  answeredQuestions = useParams();
+  console.log(answeredQuestions);
 
 
 const {candidate} = useContext(CandidateContext) //cuando estan en el mismo nivel los componentes e hijo a padre
 console.log(candidate);
+// const filteredQuestions = useContext(QuestionsContext)
+// console.log(filteredQuestions);
+
     return (
         <div>
         <Navbar color="dark" dark> </Navbar>
@@ -86,7 +94,6 @@ console.log(candidate);
     </Table>
         </ModalBody>
       </Modal>    
-      
         </div>
     )
 }
