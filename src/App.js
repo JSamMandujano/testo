@@ -6,7 +6,7 @@ import { Interview } from './components/Interview';
 import { Results } from './components/Results';
 import { GlobalProvider } from './context/GlobalState';
 import { CandidateProvider } from './context/CandidateContext';
-import { QuestionsContext } from './components/Interview';
+import { InterviewProvider } from './context/InterviewContext';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -16,6 +16,7 @@ function App() {
     <div>
       <GlobalProvider>
       <CandidateProvider>
+      <InterviewProvider>
       <Router>
          <Switch>
       <Route path="/candidateHome" component={CandidateHome} />
@@ -24,6 +25,7 @@ function App() {
       <Route path="/" component={Home} />
       </Switch>
       </Router>
+      </InterviewProvider>
       </CandidateProvider>
       </GlobalProvider>
      

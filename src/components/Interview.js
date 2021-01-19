@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import './interview.css';
 import { useHistory } from 'react-router-dom';
 import { CandidateContext } from '../context/CandidateContext';
+import { InterviewContext } from '../context/InterviewContext';
 
 
 
@@ -60,7 +61,9 @@ export const Interview = () => {
   const { candidate } = useContext(CandidateContext) //cuando estan en el mismo nivel los componentes e hijo a padre
   console.log(candidate);
 
-  const [filteredQuestions, setFilteredQuestions] = useState([]);
+  const {interview, addInterview} = useContext(InterviewContext);
+
+
 
   useEffect(() => {
     if (candidate) {
@@ -87,19 +90,17 @@ export const Interview = () => {
     console.log(newQuestionsArray);
     const newFilterQuestions = newQuestionsArray.filter(question => question != undefined);
 
-    setFilteredQuestions(newFilterQuestions);
+    addInterview(newFilterQuestions);
   };
 
-  console.log(filteredQuestions);
+  console.log(interview);
 
-  const [answeredQuestions, setAnsweredQuestions] = useState(filteredQuestions);
-    
   
-  const handleAnswer = (answer, index) => {
-    filteredQuestions[index].answer = answer ? "correct" : "incorrect"
-    let aux = filteredQuestions;
-    setAnsweredQuestions(aux) 
-  }
+  // const handleAnswer = (answer, index) => {
+  //   filteredQuestions[index].answer = answer ? "correct" : "incorrect"
+  //   let aux = filteredQuestions;
+  //   setAnsweredQuestions(aux) 
+  // }
 
 
  
@@ -110,29 +111,29 @@ export const Interview = () => {
       <Navbar color="dark" dark> </Navbar>
       <h1>Questions</h1>
       <Carousel interval={1000000}>
-        {filteredQuestions.map((filteredQuestion, index) => (
+        {interview.map((question, index) => (
 
           <Carousel.Item>
-            <img
-              className="d-block w-100"
+            <img 
+              className="d-block w-100 imagencaro"
               src="https://images.pexels.com/videos/3045163/free-video-3045163.jpg"
               alt="First slide"
             />
 
             <Carousel.Caption>
-              <h3>{filteredQuestion.subject}</h3>
-              <p>{filteredQuestion.question}</p>
+              <h3>{question.subject}</h3>
+              <p>{question.question}</p>
               <Form>
               <fieldset>
-              <Form.Check className="moveradio" type="radio" value={filteredQuestion.answer} onChange={handleAnswer(true, index)} inline label="Correcto" aria-label="radio 1" />
-              <Form.Check className="moveradiu" type="radio" value={filteredQuestion.answer} onChange={handleAnswer(false, index)} inline label="Incorrecto" aria-label="radio 1" />
+              <Form.Check className="moveradio" type="radio" value={question.answer, index} inline label="Correcto" aria-label="radio 1" />
+              <Form.Check className="moveradiu" type="radio" value={question.answer, index} inline label="Incorrecto" aria-label="radio 1" />
               </fieldset>
+              <br></br>
+              <textarea rows="4" cols="50" name="comment" form="usrform">
+Enter comments here...</textarea>
               </Form>
             </Carousel.Caption>
-
           </Carousel.Item>
-
-
         ))}
       </Carousel>
       <Button className="btn btn-warning mr-1 moverbotono " onClick={() => history.push('/results')}>Finalize</Button>

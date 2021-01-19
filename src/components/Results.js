@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { CandidateContext } from '../context/CandidateContext';
 import { useParams } from 'react-router-dom';
-// import { QuestionsContext } from './Interview';
+import { useHistory } from 'react-router-dom';
+import { InterviewContext } from '../context/InterviewContext';
 
 import './results.css';
 
@@ -11,14 +12,27 @@ import {
 export const Results = () => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-  const  answeredQuestions = useParams();
-  console.log(answeredQuestions);
+  
+  const { interview } = useContext(InterviewContext)
+console.log(interview);
 
 
 const {candidate} = useContext(CandidateContext) //cuando estan en el mismo nivel los componentes e hijo a padre
 console.log(candidate);
-// const filteredQuestions = useContext(QuestionsContext)
-// console.log(filteredQuestions);
+
+ 
+
+  // useEffect(() => {
+  //   if (interview) {
+  //     handleAnswer();
+  //   }
+  // }, [interview])
+
+  //  const handleAnswer = (answer, index) => {
+  //  interview[index].answer = answer ? "correct" : "incorrect"
+  //   let aux = answeredQuestions;
+  //  setAnsweredQuestions(aux) 
+  // }
 
     return (
         <div>
@@ -41,7 +55,7 @@ console.log(candidate);
     </tr>
     <tr>
       <td>Tipo:{candidate.description}</td>
-      <td>HTML</td>
+      <td>{interview[0].subject}</td>
       <td>P1</td>
 
     </tr>
@@ -78,7 +92,7 @@ console.log(candidate);
       </thead>
       <tbody>
         <tr>
-          <th scope="row">data</th>
+          <th scope="row">{interview[0].question}</th>
           <td>data</td>
           <td>data</td>
          

@@ -16,7 +16,8 @@
     position: relative;
     top: 40px;
     left: 5px;
-   
-    
+}
 
+.imagencaro {
+    height: 400px !important;
 }
