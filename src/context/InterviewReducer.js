@@ -18,6 +18,10 @@ export default (state, action) => {
         return {
             interview: action.payload
         }
+        case 'ADD_ANSWER':
+        return {
+            interview: action.payload
+        }
             //.payload es el parametro que mandamos, el action es la funcion 
         /* case 'EDIT_CANDIDATE':
             const updateCandidate = action.payload;
