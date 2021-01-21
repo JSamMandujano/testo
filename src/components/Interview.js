@@ -61,7 +61,7 @@ export const Interview = () => {
   const { candidate } = useContext(CandidateContext) //cuando estan en el mismo nivel los componentes e hijo a padre
   console.log(candidate);
 
-  const {interview, addInterview} = useContext(InterviewContext);
+  const {interview, addInterview, addComments} = useContext(InterviewContext);
 
 
 
@@ -96,11 +96,17 @@ export const Interview = () => {
   console.log(interview);
 
   
-  // const handleAnswer = (answer, index) => {
-  //   filteredQuestions[index].answer = answer ? "correct" : "incorrect"
+  const handleAnswer = (answer, index) => {
+     addComments(interview[index].answer = answer[index].target.value ? "correct" : "incorrect")
+  }
+
+    
+  // const handleComments = (comment, index) => {
+  //   filteredQuestions[index].comment = index.target.value
   //   let aux = filteredQuestions;
   //   setAnsweredQuestions(aux) 
   // }
+
 
 
  
@@ -125,12 +131,12 @@ export const Interview = () => {
               <p>{question.question}</p>
               <Form>
               <fieldset>
-              <Form.Check className="moveradio" type="radio" value={question.answer, index} inline label="Correcto" aria-label="radio 1" />
-              <Form.Check className="moveradiu" type="radio" value={question.answer, index} inline label="Incorrecto" aria-label="radio 1" />
+              <Form.Check className="moveradio" type="radio" value={question.answer, index} onChange={handleAnswer} inline label="Correcto" aria-label="radio 1" />
+              <Form.Check className="moveradiu" type="radio" value={question.answer, index} onChange={handleAnswer} inline label="Incorrecto" aria-label="radio 1" />
               </fieldset>
               <br></br>
               <textarea rows="4" cols="50" name="comment" form="usrform">
-Enter comments here...</textarea>
+                Enter comments here...</textarea>
               </Form>
             </Carousel.Caption>
           </Carousel.Item>

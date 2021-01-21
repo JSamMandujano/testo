@@ -50,27 +50,24 @@ console.log(candidate);
     <tr>
       <td>Nombre:{candidate.title}</td>
       <td>Skills</td>
-      <td>Points</td>
+      <td>Answer</td>
 
     </tr>
     <tr>
       <td>Tipo:{candidate.description}</td>
       <td>{interview[0].subject}</td>
-      <td>P1</td>
+      <td>""</td>
 
     </tr>
     <tr>
       <td>Correo:{candidate.category}</td>
-      <td>CSS</td>
-      <td>P1</td>
-
-
+      <td>{interview[1].subject}</td>
+      <td>""</td>
     </tr>
     <tr>
       <td></td>
-      <td>React</td>
-      <td>P1</td>
-
+      <td>{interview[2].subject}</td>
+      <td>""</td>
 
     </tr>
   </tbody>
@@ -91,19 +88,12 @@ console.log(candidate);
         </tr>
       </thead>
       <tbody>
+      {interview.map(question => (
         <tr>
-          <th scope="row">{interview[0].question}</th>
-          <td>data</td>
-          <td>data</td>
-         
+          <th scope="row">{question.question}</th>  
         </tr>
-        <tr>
-          <th scope="row">data</th>
-          <td>data</td>
-          <td>data</td>
-          
-        </tr>
-        
+     
+     ))}
       </tbody>
     </Table>
         </ModalBody>

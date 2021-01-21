@@ -41,6 +41,13 @@ const addInterview = (interview) => {
     })
 }
 
+const addComments = (interview) => {
+    dispatch({
+        type: 'ADD_COMMENTS',
+        payload: interview
+    })
+}
+
 
 const editInterview = (interview) => {
     dispatch({
@@ -56,7 +63,8 @@ return (
         interview: state.interview, //the value of the state
         removeInterview, //the actions that can change the state
         addInterview,
-        editInterview
+        editInterview,
+        addComments
     }}>
         
         {children} 
